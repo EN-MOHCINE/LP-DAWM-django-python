@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boucles</title>
+    <link rel="stylesheet" media="screen" type="text/css" title="Mon style"
+          href="{% static 'css/tabstyle.css' %}" />
+</head>
+
+<body>
+<h1>Langage des templates : Boucles</h1>
+
+<table border="1">
+    <caption>Liste des étudiants</caption>
+    <tr>
+        <th>Rang</th>
+        <th>Matricule</th>
+        <th>Nom & Prenom</th>
+        <th>Genre</th>
+        <th>Note</th>
+        <th>Mention</th>
+    </tr>
+
+    {% for etudiant in classe %}
+    <tr>
+        {% if forloop.first %}
+            <td>1er</td>
+        {% elif forloop.last %}
+            <td>Dernier</td>
+        {% else %}
+            <td>{{forloop.counter}}eme</td>
+        {% endif %}
+        <td>{{etudiant.matricule}}</td>
+        <td>{{etudiant.nom_complet}}</td>
+        <td>{{etudiant.genre_entier}}</td>
+        <td>{{etudiant.note}}</td>
+        <td>{{etudiant.mention}}</td>
+    </tr>
+    {% endfor %}
+
+    <tr>
+        <td colspan="3">La moyenne de la classe est</td>
+        <td>{{moyenne}}</td>
+    </tr>
+</table>
+
+{% if classe_vide %}
+    <h2>La classe contient des etudiants</h2>
+{% else %}
+    <h2 style="color: red;">La classe est vide</h2>
+{% endif %}
+
+</body>
+</html>

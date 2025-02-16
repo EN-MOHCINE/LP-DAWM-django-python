@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Langages des templates</title>
+            <link rel="stylesheet" href="{% static 'css/valeur_future.css' %}">
+            <link rel="stylesheet" media="screen" type="text/css" title="Mon style"href=" {% static 'css/tabstyle.css' %}" />
+
+            <script src="{% static 'js/valeur_future.js' %}"></script>
+
+
+</head>
+
+<body>
+<h1>Essentiel sur Langage des Templates</h1>
+<h2><a href = "{% url 'view_static' %}">Utilisation des fichiers statiques css, js, images</a></h2>
+<h2><a href="{% url 'view_variables' %}">Affichage des Variables</a></h2>
+<h2><a href="{% url 'view_attributs' %}">Affichage des Attributs d'un objet</a></h2>
+<h2><a href="{% url 'view_alternatives' %}">Utilisation des Alternatives</a></h2>
+<h2><a href="{% url 'view_boucles' %}">Utilisation des Boucles</a></h2>
+
+
+</body>
+
+</html>
